@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blinktrack</title>
+    <script src="background/background.js"></script>
+    <script src="popup/index.js"></script>
+    <style>
+        /*Font Family Inter Import*/
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        html, body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+        }
+
+        #count-blink-rate {
+            display: flex;
+        }
+
+        #start-tracking-button {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <header id="banner-header-popup">
+        <h1>Blinktrack</h1>
+        <br>
+        <h2>Save your eyes by tracking your blink</h2>
+        <hr>
+    </header>
+    <div id="count-blink-rate">
+        Here will be the blink rate for last day or last hour whatever
+    </div>
+
+    <div id="start-tracking-button">
+        Start tracking your blink
+    </div>
+</body>
+</html>
