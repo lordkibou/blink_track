@@ -1,3 +1,10 @@
+#Improve:
+# When staring down, the ratio decreases and it counts blinks
+# In order to avoid this problem, we need to have a previous difference with the ratio
+# In other words, to count a blink we need to have a previous state when we were not constantly blinking, eyes closed
+# or staring to a point which makes our eyes look smaller and count a blink
+
+
 #Imports from libraries
 import cv2
 import cvzone
