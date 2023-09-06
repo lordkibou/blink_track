@@ -5,38 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>blinktrack</title>
     <script src="background/background.js"></script>
-    <script src="popup/index.js"></script>
     <style>
         /*Font Family Inter Import*/
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
+        :root {
+            --main-color:#5271FF;
+            --cant-active:#a1afeda1;
+            --can-stop:#8e8e90d7;
+            --cant-stop:#8e8e9050;
+        }
         html, body {
             font-family: 'Inter', sans-serif;
             display: flex;
+            flex-direction: column;
         }
 
         #count-blink-rate {
             display: flex;
+            margin-bottom: 50px;
         }
 
-        #start-tracking-button {
+        .actionable-buttons {
             display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        #start-tracking-button, #stop-tracking-button {
+            display: flex;
+            border-radius: 6px;
+            justify-content: center;
+            align-items: center;
+
+            width: 80px;
+            height: 30px;
+            cursor: pointer;
+        }
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .can-active{
+            background-color: var(--main-color);
+        }
+        .cant-active{
+            background-color: var(--cant-active);
+        }
+        .can-stop{
+            background-color: var(--can-stop);
+        }
+        .cant-stop{
+            background-color: var(--cant-stop);
+        }
+
+        .logo {
+            width: 200px;
+            height: 50px;
         }
     </style>
 </head>
 <body>
     <header id="banner-header-popup">
-        <h1>Blinktrack</h1>
-        <br>
-        <h2>Save your eyes by tracking your blink</h2>
-        <hr>
+        <img src="icons/icon-cut.png" class="logo">
+        <h4>Save your eyes by tracking your blink</h4>
     </header>
     <div id="count-blink-rate">
-        Here will be the blink rate for last day or last hour whatever
+        Last day blink rate: 
     </div>
 
-    <div id="start-tracking-button">
-        Start tracking your blink
+    <!--Buttons Start and Stop Container-->
+    <div class="actionable-buttons">
+        <div id="start-tracking-button" class="can-active">
+            <p>Start</p>
+        </div>
+    
+        <div id="stop-tracking-button" class="cant-stop">
+            <p>Stop</p>
+        </div>
     </div>
+    <script src="popup/index.js"></script>
 </body>
 </html>

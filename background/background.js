@@ -1,3 +1,8 @@
+let mediaRecorder;
+//  I need a function to record webcam video capture, and this one which sends every minute 1 a video to the AWS
+//----------------------------------------------------------------
+//    Video Source Webcam----> startRecording()------------->   responseData : JSON{count: Integer}  || error: String
+//----------------------------------------------------------------
 async function startRecording() {
     try {
       const userMediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -7,7 +12,7 @@ async function startRecording() {
       videoElement.srcObject = userMediaStream;
       videoElement.play();
   
-      const mediaRecorder = new MediaRecorder(userMediaStream);
+      mediaRecorder = new MediaRecorder(userMediaStream);
     
     //--------------------------------------------------------------------
     // Client side call to API server
@@ -24,6 +29,8 @@ async function startRecording() {
   
             const responseData = await response.json();
             console.log('API response:', responseData);
+
+            return responseData // Return the data that will help us show the count inside of the popup
           } catch (error) {
             console.error('Error sending video:', error);
           }
@@ -38,5 +45,6 @@ async function startRecording() {
       };
     } catch (error) {
       console.error('Error accessing webcam:', error);
+      return error
     }
-  }
+}
